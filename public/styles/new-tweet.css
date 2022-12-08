@@ -1,0 +1,29 @@
+#tweet-text {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid #545149;
+  width: 100%;
+  resize: none;
+}
+
+#tweet-text::placeholder {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: bold;
+  color: rgb(142, 142, 142);
+}
+
+.under-new-tweet {
+  display: flex;
+  justify-content: space-between;
+  font-family:'Bungee', cursive;
+}
+
+button {
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: none;
+  background-color: #4056A1;
+}
+
+
