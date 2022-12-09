@@ -4,7 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// const db = require("../../server/lib/in-memory-db");
 
 $(document).ready(function() {
 
@@ -18,7 +17,7 @@ $(document).ready(function() {
     </header>
     <div>${tweetObj.content.text}</div>
     <footer>
-      <span>${tweetObj.created_at}</span>
+      <span>${timeago.format(tweetObj.created_at)}</span>
       <span><i class="fa-solid fa-flag"></i> <i class="fa-solid fa-retweet"></i> <i
           class="fa-solid fa-heart"></i></span>
     </footer>
@@ -35,16 +34,22 @@ $(document).ready(function() {
     }
   }
 
+
   // AJAX implementation for sending (POST) tweet to server 
   $("form").submit(function (event) {
     event.preventDefault();
-    console.log('Button clicked, preventing default behaviour and now performing ajax call...');
-    console.log($("#tweet-text").serialize());
-    $.ajax({
-      method: "POST",
-      url: "/tweets",
-      data: $("#tweet-text").serialize()
-    })
+    if ($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null ) {
+      window.alert('type something')
+    } else if ($("#tweet-text").val().length > 140) {
+      window.alert('too long')
+    } else {
+      $.ajax({
+        method: "POST",
+        url: "/tweets",
+        data: $("#tweet-text").serialize()
+      })
+      .then($("body").load("/"))
+    }
   });
 
   // AJAX implementation for retrieving (GET) data from the server 
