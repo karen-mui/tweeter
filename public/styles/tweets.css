@@ -1,12 +1,20 @@
 #tweet-container {
+  margin-left: 0%;
+  margin-right: 0%;
+}
+
+article {
   border-style: solid;
   border-width: 3px;
   border-color: #545149;
   padding: 2%;
   width: 100%;
-  margin: 0%;
   margin-top: 5%;
   margin-bottom: 5%;
+}
+
+article:hover {
+  box-shadow: 5px 8px #abb9ea;
 }
 
 article > div {
@@ -20,11 +28,21 @@ article > div {
 }
 
 
-header {
+article > header {
   display: flex;
   justify-content: space-between;
   padding: 3%;
   margin-bottom: 3%;
+  align-items:baseline;
+}
+
+/* header > span > img {
+  
+} */
+
+#handle {
+  font-weight: bold;
+  color: #abb9ea;
 }
 
 footer {
@@ -34,3 +52,11 @@ footer {
   padding: 2%
 }
 
+footer .fa-solid {
+  color: #4056A1;
+  font-size: 1.5em;
+}
+
+footer .fa-solid:hover {
+  color: rgb(219, 162, 16);
+}

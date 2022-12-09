@@ -1,4 +1,4 @@
-#main-header {
+body > header {
   background-color: rgb(233, 153, 49);
   height: 520px;
   width: 100%;
@@ -9,7 +9,3 @@
   background-image: url(../images/checkered-light-emboss.png);
 }
 
-/* #avatar {
-  display: flex;
-
-} */
