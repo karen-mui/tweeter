@@ -7,6 +7,15 @@
 
 $(document).ready(function() {
 
+  $("#error").hide();
+
+  // preventing cross-site scripting (XSS)
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   // turns tweet object into HTML formatted tweet articles 
   const createTweetElement = function(tweetObj) {
     let $tweet = $(`
@@ -15,7 +24,7 @@ $(document).ready(function() {
       <span><img src=${tweetObj.user.avatars}></i>${tweetObj.user.name}</span>
       <span id="handle">${tweetObj.user.handle}</span>
     </header>
-    <div>${tweetObj.content.text}</div>
+    <div>${escape(tweetObj.content.text)}</div>
     <footer>
       <span>${timeago.format(tweetObj.created_at)}</span>
       <span><i class="fa-solid fa-flag"></i> <i class="fa-solid fa-retweet"></i> <i
@@ -38,10 +47,14 @@ $(document).ready(function() {
   // AJAX implementation for sending (POST) tweet to server 
   $("form").submit(function (event) {
     event.preventDefault();
+    $("#error").hide();
     if ($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null ) {
-      window.alert('type something')
+      $("#error").text('What\'s on your mind? Tweet tweet.')
+      $("#error").slideDown();
+      // window.alert('type something')
     } else if ($("#tweet-text").val().length > 140) {
-      window.alert('too long')
+      $("#error").text('Nobody wants to read that much text! 🙅')
+      $("#error").slideDown();
     } else {
       $.ajax({
         method: "POST",
