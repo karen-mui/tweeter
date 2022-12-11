@@ -8,7 +8,6 @@ article {
   border-width: 3px;
   border-color: #545149;
   padding: 2%;
-  width: 100%;
   margin-top: 5%;
   margin-bottom: 5%;
 }
@@ -21,7 +20,6 @@ article > div {
   background: transparent;
   border: none;
   border-bottom: 3px solid #545149;
-  width: 100%;
   resize: none;
   text-align: left;
   font-weight: 100;

@@ -5,7 +5,7 @@ nav {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   padding: 1.5em;
-  position: fixed;
+  /* position: fixed; */
   width: 100%;
 }
 
