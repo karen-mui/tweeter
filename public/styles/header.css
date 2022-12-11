@@ -1,4 +1,4 @@
-body > header {
+body>header {
   background-color: rgb(233, 153, 49);
   height: 520px;
   width: 30%;
@@ -11,9 +11,10 @@ body > header {
   background-image: url(../images/checkered-light-emboss.png);
 }
 
+/* Tablet and mobile phone style */
 @media only screen and (max-width: 768px) {
 
-  body > header {
+  body>header {
     width: 90%;
   }
 

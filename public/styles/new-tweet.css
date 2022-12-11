@@ -15,7 +15,7 @@
 .under-new-tweet {
   display: flex;
   justify-content: space-between;
-  font-family:'Bungee', cursive;
+  font-family: 'Bungee', cursive;
 }
 
 button {

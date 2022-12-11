@@ -5,12 +5,11 @@ nav {
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
   padding: 1.5em;
-  /* position: fixed; */
   width: 100%;
 }
 
 #logo {
-  font-family:'Bungee', cursive;
+  font-family: 'Bungee', cursive;
 }
 
 #write-new-tweet {

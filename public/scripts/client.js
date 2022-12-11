@@ -10,7 +10,7 @@ $(document).ready(function() {
   $("#error").hide();
 
   // preventing cross-site scripting (XSS)
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
@@ -41,19 +41,19 @@ $(document).ready(function() {
     for (let tweet of tweets) {
       $('#tweet-container').append(createTweetElement(tweet));
     }
-  }
+  };
 
 
   // AJAX implementation for sending (POST) tweet to server 
-  $("form").submit(function (event) {
+  $("form").submit(function(event) {
     event.preventDefault();
     $("#error").hide();
-    if ($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null ) {
-      $("#error").text('What\'s on your mind? Tweet tweet.')
+    if ($("#tweet-text").val().length === 0 || $("#tweet-text").val() === null) {
+      $("#error").text('What\'s on your mind? Tweet tweet.');
       $("#error").slideDown();
       // window.alert('type something')
     } else if ($("#tweet-text").val().length > 140) {
-      $("#error").text('Nobody wants to read that much text! 🙅')
+      $("#error").text('Nobody wants to read that much text! 🙅');
       $("#error").slideDown();
     } else {
       $.ajax({
@@ -61,20 +61,20 @@ $(document).ready(function() {
         url: "/tweets",
         data: $("#tweet-text").serialize()
       })
-      .then($("body").load("/"))
+        .then($("body").load("/"));
     }
   });
 
   // AJAX implementation for retrieving (GET) data from the server 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax({
       method: "GET",
       url: "/tweets",
     })
-    .then(function (tweets) {
-      renderTweets(tweets)
-    })
-  }
+      .then(function(tweets) {
+        renderTweets(tweets);
+      });
+  };
 
   loadTweets();
 
